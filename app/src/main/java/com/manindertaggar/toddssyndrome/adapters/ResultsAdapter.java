@@ -11,6 +11,7 @@ import com.manindertaggar.toddssyndrome.R;
 import com.manindertaggar.toddssyndrome.SyndromTest;
 import com.manindertaggar.toddssyndrome.storage.Dao;
 
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -28,6 +29,7 @@ public class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ResultVi
     public ResultsAdapter(Context context) {
         this.context = context;
         syndromTestList = Dao.getDaoSession().getSyndromTestDao().loadAll();
+        Collections.reverse(syndromTestList);
     }
 
     @Override

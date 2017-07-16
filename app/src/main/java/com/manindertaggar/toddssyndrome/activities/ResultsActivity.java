@@ -23,7 +23,6 @@ public class ResultsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setReverseLayout(true);
         rvResults.setLayoutManager(layoutManager);
         rvResults.setAdapter(new ResultsAdapter(this));
     }
