@@ -22,7 +22,9 @@ public class ResultsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_results);
         ButterKnife.bind(this);
 
-        rvResults.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setReverseLayout(true);
+        rvResults.setLayoutManager(layoutManager);
         rvResults.setAdapter(new ResultsAdapter(this));
     }
 }

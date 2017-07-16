@@ -1,12 +1,14 @@
 package com.manindertaggar.toddssyndrome.activities;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.manindertaggar.toddssyndrome.R;
 import com.manindertaggar.toddssyndrome.SyndromTest;
 import com.manindertaggar.toddssyndrome.adapters.TestAdapter;
+import com.manindertaggar.toddssyndrome.fragments.TestResultsFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,6 +47,11 @@ public class TestActivity extends AppCompatActivity {
 
     public void showNext() {
         testViewPager.setCurrentItem(testViewPager.getCurrentItem() + 1);
+        Fragment fragment = testAdapter.getFragmentAtPosition(testViewPager.getCurrentItem());
+        if (fragment != null && fragment instanceof TestResultsFragment) {
+            ((TestResultsFragment) fragment).setData();
+
+        }
     }
 
     @Override

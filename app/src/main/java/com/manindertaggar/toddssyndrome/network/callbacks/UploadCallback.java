@@ -67,7 +67,7 @@ public class UploadCallback extends RequestCallback {
                         showError(new ShowableException(responseObject.getString("message")));
                     } else {
                         Log.d(TAG, "run: upload success");
-                        syndromTest.setUploaded(false);
+                        syndromTest.setUploaded(true);
                         Dao.getSyndromeDao().update(syndromTest);
                     }
                 } catch (JSONException e) {

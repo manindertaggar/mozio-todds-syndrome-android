@@ -12,6 +12,7 @@ import com.manindertaggar.toddssyndrome.fragments.TestResultsFragment;
 import com.manindertaggar.toddssyndrome.fragments.UseHallucinogenicFragment;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -23,6 +24,7 @@ public class TestAdapter extends FragmentPagerAdapter {
 
     private final List<String> fragments = new ArrayList();
     private Context context;
+    private HashMap<Integer, Fragment> framentsMap = new HashMap<>();
 
     public TestAdapter(Context context, FragmentManager fm) {
         super(fm);
@@ -36,7 +38,17 @@ public class TestAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return Fragment.instantiate(context, fragments.get(position));
+        Fragment fragment = Fragment.instantiate(context, fragments.get(position));
+        framentsMap.put(position, fragment);
+        return fragment;
+    }
+
+    public Fragment getFragmentAtPosition(int position) {
+        if (framentsMap.containsKey(position)) {
+            return framentsMap.get(position);
+        }
+
+        return null;
     }
 
     @Override

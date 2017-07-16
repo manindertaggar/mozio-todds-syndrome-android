@@ -75,6 +75,7 @@ public class GetAllTestsCallback extends RequestCallback {
             for (int i = 0; i < length; i++) {
                 SyndromTest syndromTest = new Gson().fromJson(records.get(i).toString(), SyndromTest.class);
                 syndromTest.setId(null);
+                syndromTest.setIsUploaded(true);
                 Dao.getSyndromeDao().insert(syndromTest);
             }
             Pref.getInstance().setDataSynced(true);

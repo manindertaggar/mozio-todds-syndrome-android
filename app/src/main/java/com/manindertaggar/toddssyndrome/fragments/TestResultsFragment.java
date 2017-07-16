@@ -1,9 +1,9 @@
 package com.manindertaggar.toddssyndrome.fragments;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +24,7 @@ import butterknife.OnClick;
  */
 
 public class TestResultsFragment extends Fragment {
+    private static final String TAG = TestResultsFragment.class.getSimpleName();
     private SyndromTest syndromTest;
     @BindView(R.id.tvSex)
     TextView tvSex;
@@ -41,31 +42,29 @@ public class TestResultsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        Log.d(TAG, "onCreateView: created");
         this.syndromTest = ((TestActivity) getActivity()).getSyndromTest();
         View view = inflater.inflate(R.layout.layout_viewpager_test_result, container, false);
         ButterKnife.bind(this, view);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                setData();
-                saveAndUpload();
-            }
-        }, 1000);
         return view;
     }
 
     private void saveAndUpload() {
+        Log.d(TAG, "saveAndUpload: ");
         Dao.getSyndromeDao().save(syndromTest);
         new UploadRequest(getContext()).send(syndromTest);
     }
 
 
-    private void setData() {
+    public void setData() {
+        Log.d(TAG, "setData: ");
         tvSex.setText(syndromTest.getIsMale() ? "Male" : "Female");
         tvMigranes.setText(syndromTest.getHaveMigranes() ? "Yes" : "No");
         tvDrugs.setText(syndromTest.getUsesHallucinogeninDrugs() ? "Yes" : "No");
         tvAge.setText(syndromTest.getAge() + "");
         tvProbability.setText(syndromTest.getProbabity() + " %");
+
+        saveAndUpload();
     }
 
     @OnClick(R.id.tvHome)
