@@ -1,15 +1,21 @@
 package com.manindertaggar.toddssyndrome;
 
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Generated;
+
 /**
  * Created by maninder on 16/7/17.
  */
 
-public class SyndromTest {
+@Entity
+public class SyndromCalculator {
+    @Id(autoincrement = true)
+    private Long id;
     private int age = 50;
     private Boolean isMale = false;
     private Boolean haveMigranes = false;
     private Boolean usesHallucinogeninDrugs = false;
-
 
     private int probabity = 0;
 
@@ -38,7 +44,7 @@ public class SyndromTest {
     }
 
 
-    public SyndromTest(int age, Boolean isMale, Boolean haveMigranes, Boolean usesHallucinogeninDrugs) {
+    public SyndromCalculator(int age, Boolean isMale, Boolean haveMigranes, Boolean usesHallucinogeninDrugs) {
         this.age = age;
         this.isMale = isMale;
         this.haveMigranes = haveMigranes;
@@ -46,9 +52,23 @@ public class SyndromTest {
         updateProbability();
     }
 
-    public SyndromTest() {
+    public SyndromCalculator() {
 
     }
+
+
+    @Generated(hash = 1226952326)
+    public SyndromCalculator(Long id, int age, Boolean isMale, Boolean haveMigranes,
+            Boolean usesHallucinogeninDrugs, int probabity) {
+        this.id = id;
+        this.age = age;
+        this.isMale = isMale;
+        this.haveMigranes = haveMigranes;
+        this.usesHallucinogeninDrugs = usesHallucinogeninDrugs;
+        this.probabity = probabity;
+    }
+
+
 
     public void getProbability() {
 
@@ -88,5 +108,35 @@ public class SyndromTest {
     public void setUsesHallucinogeninDrugs(Boolean usesHallucinogeninDrugs) {
         this.usesHallucinogeninDrugs = usesHallucinogeninDrugs;
         updateProbability();
+    }
+
+
+    public Long getId() {
+        return this.id;
+    }
+
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+
+    public Boolean getIsMale() {
+        return this.isMale;
+    }
+
+
+    public void setIsMale(Boolean isMale) {
+        this.isMale = isMale;
+    }
+
+
+    public int getProbabity() {
+        return this.probabity;
+    }
+
+
+    public void setProbabity(int probabity) {
+        this.probabity = probabity;
     }
 }
