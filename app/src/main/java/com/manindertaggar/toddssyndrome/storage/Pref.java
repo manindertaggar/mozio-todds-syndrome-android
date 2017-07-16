@@ -8,9 +8,7 @@ import android.content.SharedPreferences;
  */
 
 public class Pref {
-    private static final String KEY_LOGGED_IN = "isLoggedIn";
-    private static final String KEY_DEVICE_ID = "deviceId";
-    private static final String KEY_NAME = "name";
+    private static final String KEY_IS_DATA_SYNCED_ATLEASE_ONCE = "isDataSyncedAtleastOnce";
 
     private static Pref runningInstance;
     private Context context;
@@ -34,38 +32,13 @@ public class Pref {
         new Pref(context);
     }
 
-    public Boolean isLoggedIn() {
-        return sharedPreferences.getBoolean(KEY_LOGGED_IN, false);
+    public Boolean isDataSyncedAtleastOnce() {
+        return sharedPreferences.getBoolean(KEY_IS_DATA_SYNCED_ATLEASE_ONCE, false);
     }
 
-    public void setIsLoggedIn(Boolean value) {
-        editor.putBoolean(KEY_LOGGED_IN, value).commit();
+    public void setDataSynced(Boolean value) {
+        editor.putBoolean(KEY_IS_DATA_SYNCED_ATLEASE_ONCE, value).commit();
     }
 
-    public void saveDeviceId(String token) {
-        if (token != null || !token.isEmpty()) {
-            editor.putString(KEY_DEVICE_ID, token).commit();
-            setIsLoggedIn(true);
-        } else {
-            editor.remove(KEY_DEVICE_ID);
-            setIsLoggedIn(false);
-        }
-    }
-
-    public void clearToken() {
-        saveDeviceId(null);
-    }
-
-    public String getToken() {
-        return sharedPreferences.getString(KEY_DEVICE_ID, "");
-    }
-
-    public String getName() {
-        return sharedPreferences.getString(KEY_NAME, "");
-    }
-
-    public void setName(String name) {
-        editor.putString(KEY_NAME, name).commit();
-    }
 
 }

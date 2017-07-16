@@ -5,7 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.manindertaggar.toddssyndrome.R;
-import com.manindertaggar.toddssyndrome.SyndromCalculator;
+import com.manindertaggar.toddssyndrome.SyndromTest;
 import com.manindertaggar.toddssyndrome.adapters.TestAdapter;
 
 import butterknife.BindView;
@@ -17,15 +17,17 @@ public class TestActivity extends AppCompatActivity {
     @BindView(R.id.testViewPager)
     ViewPager testViewPager;
     Unbinder unbinder;
-    public SyndromCalculator syndromCalculator;
+    public SyndromTest syndromTest;
     private TestAdapter testAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        this.syndromCalculator = new SyndromCalculator();
+        this.syndromTest = new SyndromTest();
+
         unbinder = ButterKnife.bind(this);
+
         testAdapter = (new TestAdapter(this, getSupportFragmentManager()));
         testViewPager.setAdapter(testAdapter);
         testViewPager.beginFakeDrag();
@@ -37,8 +39,8 @@ public class TestActivity extends AppCompatActivity {
         unbinder.unbind();
     }
 
-    public SyndromCalculator getSyndromCalculator() {
-        return syndromCalculator;
+    public SyndromTest getSyndromTest() {
+        return syndromTest;
     }
 
     public void showNext() {

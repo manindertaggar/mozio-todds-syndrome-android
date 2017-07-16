@@ -1,5 +1,8 @@
 package com.manindertaggar.toddssyndrome;
 
+import com.google.gson.Gson;
+import com.google.gson.annotations.Expose;
+
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
@@ -9,7 +12,8 @@ import org.greenrobot.greendao.annotation.Id;
  */
 
 @Entity
-public class SyndromCalculator {
+public class SyndromTest {
+    @Expose
     @Id(autoincrement = true)
     private Long id;
     private int age = 50;
@@ -53,7 +57,7 @@ public class SyndromCalculator {
     }
 
 
-    public SyndromCalculator(int age, Boolean isMale, Boolean haveMigranes, Boolean usesHallucinogeninDrugs) {
+    public SyndromTest(int age, Boolean isMale, Boolean haveMigranes, Boolean usesHallucinogeninDrugs) {
         this.age = age;
         this.isMale = isMale;
         this.haveMigranes = haveMigranes;
@@ -61,21 +65,10 @@ public class SyndromCalculator {
         updateProbability();
     }
 
-    public SyndromCalculator() {
+    public SyndromTest() {
 
     }
 
-    @Generated(hash = 996192452)
-    public SyndromCalculator(Long id, int age, Boolean isMale, Boolean haveMigranes,
-            Boolean usesHallucinogeninDrugs, int time, int probabity) {
-        this.id = id;
-        this.age = age;
-        this.isMale = isMale;
-        this.haveMigranes = haveMigranes;
-        this.usesHallucinogeninDrugs = usesHallucinogeninDrugs;
-        this.time = time;
-        this.probabity = probabity;
-    }
 
 
     public void getProbability() {
@@ -146,5 +139,10 @@ public class SyndromCalculator {
 
     public void setProbabity(int probabity) {
         this.probabity = probabity;
+    }
+
+    @Override
+    public String toString() {
+        return new Gson().toJson(this);
     }
 }

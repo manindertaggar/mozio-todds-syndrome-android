@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.manindertaggar.toddssyndrome.R;
-import com.manindertaggar.toddssyndrome.SyndromCalculator;
+import com.manindertaggar.toddssyndrome.SyndromTest;
 import com.manindertaggar.toddssyndrome.activities.TestActivity;
 
 import butterknife.BindView;
@@ -21,7 +21,7 @@ import butterknife.OnClick;
  */
 
 public class HaveMigranesFragment extends Fragment {
-    SyndromCalculator syndromCalculator;
+    SyndromTest syndromTest;
 
     @BindView(R.id.ivMigraneFace)
     ImageView ivMigraneFace;
@@ -32,7 +32,7 @@ public class HaveMigranesFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        this.syndromCalculator = ((TestActivity) getActivity()).getSyndromCalculator();
+        this.syndromTest = ((TestActivity) getActivity()).getSyndromTest();
         View view = inflater.inflate(R.layout.layout_viewpager_have_migranes, container, false);
         ButterKnife.bind(this, view);
         initViews();
@@ -40,7 +40,7 @@ public class HaveMigranesFragment extends Fragment {
     }
 
     private void initViews() {
-        if (syndromCalculator.getIsMale()) {
+        if (syndromTest.getIsMale()) {
             ivMigraneFace.setImageResource(R.drawable.male_migrane);
             ivNoMigraneFace.setImageResource(R.drawable.male);
         } else {
@@ -52,13 +52,13 @@ public class HaveMigranesFragment extends Fragment {
 
     @OnClick(R.id.llNoMigrane)
     public void onNoMigraneSelected() {
-        syndromCalculator.setHaveMigranes(false);
+        syndromTest.setHaveMigranes(false);
         ((TestActivity) getActivity()).showNext();
     }
 
     @OnClick(R.id.llMigrane)
     public void onMigraneSelected() {
-        syndromCalculator.setHaveMigranes(true);
+        syndromTest.setHaveMigranes(true);
         ((TestActivity) getActivity()).showNext();
 
     }

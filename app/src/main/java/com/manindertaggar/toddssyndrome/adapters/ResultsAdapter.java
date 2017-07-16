@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.manindertaggar.toddssyndrome.R;
-import com.manindertaggar.toddssyndrome.SyndromCalculator;
+import com.manindertaggar.toddssyndrome.SyndromTest;
 import com.manindertaggar.toddssyndrome.storage.Dao;
 
 import java.util.List;
@@ -23,11 +23,11 @@ import butterknife.ButterKnife;
 public class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ResultViewHolder> {
 
     private Context context;
-    private List<SyndromCalculator> syndromCalculatorList;
+    private List<SyndromTest> syndromTestList;
 
     public ResultsAdapter(Context context) {
         this.context = context;
-        syndromCalculatorList = Dao.getDaoSession().getSyndromCalculatorDao().loadAll();
+        syndromTestList = Dao.getDaoSession().getSyndromCalculatorDao().loadAll();
     }
 
     @Override
@@ -38,12 +38,12 @@ public class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ResultVi
 
     @Override
     public void onBindViewHolder(ResultViewHolder holder, int position) {
-        holder.setData(syndromCalculatorList.get(position));
+        holder.setData(syndromTestList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return syndromCalculatorList.size();
+        return syndromTestList.size();
     }
 
 
@@ -64,12 +64,12 @@ public class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ResultVi
             ButterKnife.bind(this, itemView);
         }
 
-        public void setData(SyndromCalculator syndromCalculator) {
-            tvSex.setText(syndromCalculator.getIsMale() ? "Male" : "Female");
-            tvMigranes.setText(syndromCalculator.getHaveMigranes() ? "Yes" : "No");
-            tvDrugs.setText(syndromCalculator.getUsesHallucinogeninDrugs() ? "Yes" : "No");
-            tvAge.setText(syndromCalculator.getAge() + "");
-            tvProbability.setText(syndromCalculator.getProbabity() + " %");
+        public void setData(SyndromTest syndromTest) {
+            tvSex.setText(syndromTest.getIsMale() ? "Male" : "Female");
+            tvMigranes.setText(syndromTest.getHaveMigranes() ? "Yes" : "No");
+            tvDrugs.setText(syndromTest.getUsesHallucinogeninDrugs() ? "Yes" : "No");
+            tvAge.setText(syndromTest.getAge() + "");
+            tvProbability.setText(syndromTest.getProbabity() + " %");
         }
     }
 }

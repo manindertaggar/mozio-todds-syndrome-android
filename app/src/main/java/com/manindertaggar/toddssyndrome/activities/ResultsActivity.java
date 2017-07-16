@@ -21,6 +21,7 @@ public class ResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
         ButterKnife.bind(this);
+
         rvResults.setLayoutManager(new LinearLayoutManager(this));
         rvResults.setAdapter(new ResultsAdapter(this));
     }

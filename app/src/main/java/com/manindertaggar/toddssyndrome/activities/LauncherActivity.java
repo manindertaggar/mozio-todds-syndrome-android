@@ -9,6 +9,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 
 import com.manindertaggar.toddssyndrome.R;
+import com.manindertaggar.toddssyndrome.network.requests.GetAllTestsRequest;
 import com.manindertaggar.toddssyndrome.storage.Pref;
 
 import butterknife.BindView;
@@ -25,18 +26,17 @@ public class LauncherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
         ButterKnife.bind(this);
-        ivLogo.setAlpha(0f);
-        ivLogo.animate().setInterpolator(new DecelerateInterpolator()).setDuration(1000).rotationY(180).alpha(1);
+
+        if (!Pref.getInstance().isDataSyncedAtleastOnce()) {
+            new GetAllTestsRequest(getApplicationContext()).send();
+        }
+
+        ivLogo.animate().setInterpolator(new DecelerateInterpolator()).setDuration(1000).rotationY(180);
+
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (Pref.getInstance().isLoggedIn()) {
-                    startActivity(new Intent(LauncherActivity.this, MainActivity.class));
-                } else {
-
-                    Intent intent = new Intent(LauncherActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                }
+                startActivity(new Intent(LauncherActivity.this, MainActivity.class));
                 finish();
             }
         }, SPLASH_DELAY);

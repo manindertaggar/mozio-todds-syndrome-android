@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.manindertaggar.toddssyndrome.R;
-import com.manindertaggar.toddssyndrome.SyndromCalculator;
+import com.manindertaggar.toddssyndrome.SyndromTest;
 import com.manindertaggar.toddssyndrome.activities.TestActivity;
 import com.manindertaggar.toddssyndrome.adapters.AgeAdapter;
 
@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
  */
 
 public class SetAgeFragment extends Fragment implements AgeAdapter.AgeSelectedListener {
-    SyndromCalculator syndromCalculator;
+    SyndromTest syndromTest;
 
     @BindView(R.id.rvAge)
     RecyclerView rvAge;
@@ -30,7 +30,7 @@ public class SetAgeFragment extends Fragment implements AgeAdapter.AgeSelectedLi
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        this.syndromCalculator = ((TestActivity) getActivity()).getSyndromCalculator();
+        this.syndromTest = ((TestActivity) getActivity()).getSyndromTest();
         View view = inflater.inflate(R.layout.layout_viewpager_set_age, container, false);
         ButterKnife.bind(this, view);
         setData();
@@ -45,7 +45,7 @@ public class SetAgeFragment extends Fragment implements AgeAdapter.AgeSelectedLi
 
     @Override
     public void onAgeSelected(int age) {
-        syndromCalculator.setAge(age);
+        syndromTest.setAge(age);
         ((TestActivity) getActivity()).showNext();
 
     }

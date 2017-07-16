@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.manindertaggar.toddssyndrome.R;
-import com.manindertaggar.toddssyndrome.SyndromCalculator;
+import com.manindertaggar.toddssyndrome.SyndromTest;
 import com.manindertaggar.toddssyndrome.activities.TestActivity;
 
 import butterknife.ButterKnife;
@@ -19,12 +19,12 @@ import butterknife.OnClick;
  */
 
 public class SetSexFragment extends Fragment {
-    private SyndromCalculator syndromCalculator;
+    private SyndromTest syndromTest;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        this.syndromCalculator = ((TestActivity) getActivity()).getSyndromCalculator();
+        this.syndromTest = ((TestActivity) getActivity()).getSyndromTest();
         View view = inflater.inflate(R.layout.layout_viewpager_set_sex, container, false);
         ButterKnife.bind(this, view);
         return view;
@@ -32,13 +32,13 @@ public class SetSexFragment extends Fragment {
 
     @OnClick(R.id.llMale)
     public void onMaleSelected() {
-        syndromCalculator.setIsMale(true);
+        syndromTest.setIsMale(true);
         ((TestActivity) getActivity()).showNext();
     }
 
     @OnClick(R.id.llFemale)
     public void onFemaleSelected() {
-        syndromCalculator.setIsMale(false);
+        syndromTest.setIsMale(false);
         ((TestActivity) getActivity()).showNext();
     }
 

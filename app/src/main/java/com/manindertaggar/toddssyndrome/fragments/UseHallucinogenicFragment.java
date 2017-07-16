@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.manindertaggar.toddssyndrome.R;
-import com.manindertaggar.toddssyndrome.SyndromCalculator;
+import com.manindertaggar.toddssyndrome.SyndromTest;
 import com.manindertaggar.toddssyndrome.activities.TestActivity;
 
 import butterknife.ButterKnife;
@@ -19,12 +19,12 @@ import butterknife.OnClick;
  */
 
 public class UseHallucinogenicFragment extends Fragment {
-    SyndromCalculator syndromCalculator;
+    SyndromTest syndromTest;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        this.syndromCalculator = ((TestActivity) getActivity()).getSyndromCalculator();
+        this.syndromTest = ((TestActivity) getActivity()).getSyndromTest();
         View view = inflater.inflate(R.layout.layout_viewpager_uses_hallucinogenic, container, false);
         ButterKnife.bind(this, view);
         return view;
@@ -33,13 +33,13 @@ public class UseHallucinogenicFragment extends Fragment {
 
     @OnClick(R.id.tvUseDrugsYes)
     public void onDrugsUsedSelected() {
-        syndromCalculator.setUsesHallucinogeninDrugs(true);
+        syndromTest.setUsesHallucinogeninDrugs(true);
         ((TestActivity) getActivity()).showNext();
     }
 
     @OnClick(R.id.tvUseDrugsNo)
     public void onNoDrugsUsedSelected() {
-        syndromCalculator.setUsesHallucinogeninDrugs(false);
+        syndromTest.setUsesHallucinogeninDrugs(false);
         ((TestActivity) getActivity()).showNext();
     }
 
