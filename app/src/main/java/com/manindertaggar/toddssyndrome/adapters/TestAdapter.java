@@ -34,7 +34,6 @@ public class TestAdapter extends FragmentPagerAdapter {
         fragments.add(TestResultsFragment.class.getName());
     }
 
-
     @Override
     public Fragment getItem(int position) {
         return Fragment.instantiate(context, fragments.get(position));

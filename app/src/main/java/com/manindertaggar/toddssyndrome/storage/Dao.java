@@ -26,7 +26,7 @@ public class Dao {
         return daoSession;
     }
 
-    public static SyndromCalculatorDao getFollowerNodeDao() {
+    public static SyndromCalculatorDao getSyndromeDao() {
         return daoSession.getSyndromCalculatorDao();
     }
 

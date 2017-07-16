@@ -11,6 +11,7 @@ import com.manindertaggar.toddssyndrome.R;
 import com.manindertaggar.toddssyndrome.SyndromCalculator;
 import com.manindertaggar.toddssyndrome.activities.TestActivity;
 
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -25,6 +26,7 @@ public class UseHallucinogenicFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         this.syndromCalculator = ((TestActivity) getActivity()).getSyndromCalculator();
         View view = inflater.inflate(R.layout.layout_viewpager_uses_hallucinogenic, container, false);
+        ButterKnife.bind(this, view);
         return view;
     }
 

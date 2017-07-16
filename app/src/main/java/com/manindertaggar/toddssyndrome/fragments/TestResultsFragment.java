@@ -1,6 +1,7 @@
 package com.manindertaggar.toddssyndrome.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.manindertaggar.toddssyndrome.R;
 import com.manindertaggar.toddssyndrome.SyndromCalculator;
 import com.manindertaggar.toddssyndrome.activities.TestActivity;
+import com.manindertaggar.toddssyndrome.storage.Dao;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,8 +43,20 @@ public class TestResultsFragment extends Fragment {
         this.syndromCalculator = ((TestActivity) getActivity()).getSyndromCalculator();
         View view = inflater.inflate(R.layout.layout_viewpager_test_result, container, false);
         ButterKnife.bind(this, view);
-        initViews();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                initViews();
+                saveInDatabase();
+            }
+
+
+        }, 1000);
         return view;
+    }
+
+    private void saveInDatabase() {
+        Dao.getSyndromeDao().save(syndromCalculator);
     }
 
     private void initViews() {
@@ -50,6 +64,7 @@ public class TestResultsFragment extends Fragment {
         tvMigranes.setText(syndromCalculator.getHaveMigranes() ? "Yes" : "No");
         tvDrugs.setText(syndromCalculator.getUsesHallucinogeninDrugs() ? "Yes" : "No");
         tvAge.setText(syndromCalculator.getAge() + "");
+        tvProbability.setText(syndromCalculator.getProbabity() + " %");
     }
 
     @OnClick(R.id.tvHome)
