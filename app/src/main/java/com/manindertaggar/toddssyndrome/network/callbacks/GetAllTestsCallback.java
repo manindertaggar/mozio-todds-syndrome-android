@@ -2,6 +2,7 @@ package com.manindertaggar.toddssyndrome.network.callbacks;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.manindertaggar.toddssyndrome.SyndromTest;
@@ -40,6 +41,7 @@ public class GetAllTestsCallback extends RequestCallback {
 
     private void showError(final Exception e) {
         Log.e(TAG, e.toString());
+        Toast.makeText(context, "Sync Failed", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -72,6 +74,7 @@ public class GetAllTestsCallback extends RequestCallback {
             int length = records.length();
             for (int i = 0; i < length; i++) {
                 SyndromTest syndromTest = new Gson().fromJson(records.get(i).toString(), SyndromTest.class);
+                syndromTest.setId(null);
                 Dao.getSyndromeDao().insert(syndromTest);
             }
             Pref.getInstance().setDataSynced(true);

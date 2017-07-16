@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.manindertaggar.toddssyndrome.DaoMaster;
 import com.manindertaggar.toddssyndrome.DaoSession;
-import com.manindertaggar.toddssyndrome.SyndromCalculatorDao;
+import com.manindertaggar.toddssyndrome.SyndromTestDao;
 
 import org.greenrobot.greendao.database.Database;
 
@@ -25,8 +25,8 @@ public class Dao {
         return daoSession;
     }
 
-    public static SyndromCalculatorDao getSyndromeDao() {
-        return daoSession.getSyndromCalculatorDao();
+    public static SyndromTestDao getSyndromeDao() {
+        return daoSession.getSyndromTestDao();
     }
 
 }

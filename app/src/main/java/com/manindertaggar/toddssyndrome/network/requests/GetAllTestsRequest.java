@@ -27,7 +27,7 @@ public class GetAllTestsRequest extends HttpRequest {
     public void send() {
         RequestBody formBody = new FormBody.Builder()
                 .add("action", NetworkConstants.ACTION_GET_ALL)
-                .add("token", BaseApplication.getDeviceId())
+                .add("deviceId", BaseApplication.getDeviceId())
                 .build();
 
         RequestCallback callback = new GetAllTestsCallback(context);

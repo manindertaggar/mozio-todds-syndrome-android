@@ -17,7 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by maninder on 16/7/17.
+ * Created by Maninder Taggar on 16/7/17.
  */
 
 public class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ResultViewHolder> {
@@ -27,7 +27,7 @@ public class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ResultVi
 
     public ResultsAdapter(Context context) {
         this.context = context;
-        syndromTestList = Dao.getDaoSession().getSyndromCalculatorDao().loadAll();
+        syndromTestList = Dao.getDaoSession().getSyndromTestDao().loadAll();
     }
 
     @Override

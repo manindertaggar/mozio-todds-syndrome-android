@@ -4,8 +4,10 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.manindertaggar.toddssyndrome.SyndromTest;
 import com.manindertaggar.toddssyndrome.network.core.RequestCallback;
 import com.manindertaggar.toddssyndrome.network.core.ShowableException;
+import com.manindertaggar.toddssyndrome.storage.Dao;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,10 +25,12 @@ public class UploadCallback extends RequestCallback {
 
     private static final String TAG = UploadCallback.class.getCanonicalName();
     private Context context;
+    private SyndromTest syndromTest;
 
-    public UploadCallback(Context context) {
+    public UploadCallback(Context context, SyndromTest syndromTest) {
         super(context);
         this.context = context;
+        this.syndromTest = syndromTest;
     }
 
     @Override
@@ -36,6 +40,8 @@ public class UploadCallback extends RequestCallback {
 
     private void showError(final Exception e) {
         Log.e(TAG, e.toString());
+        syndromTest.setUploaded(false);
+        Dao.getSyndromeDao().update(syndromTest);
         getHandler().post(new Runnable() {
             @Override
             public void run() {
@@ -61,6 +67,8 @@ public class UploadCallback extends RequestCallback {
                         showError(new ShowableException(responseObject.getString("message")));
                     } else {
                         Log.d(TAG, "run: upload success");
+                        syndromTest.setUploaded(false);
+                        Dao.getSyndromeDao().update(syndromTest);
                     }
                 } catch (JSONException e) {
                     Log.e(TAG, "parsing error");

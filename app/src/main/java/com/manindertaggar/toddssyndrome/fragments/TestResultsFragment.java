@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Created by maninder on 16/7/17.
+ * Created by Maninder Taggar on 16/7/17.
  */
 
 public class TestResultsFragment extends Fragment {
@@ -56,7 +56,7 @@ public class TestResultsFragment extends Fragment {
 
     private void saveAndUpload() {
         Dao.getSyndromeDao().save(syndromTest);
-        new UploadRequest(getContext()).send(syndromTest.toString());
+        new UploadRequest(getContext()).send(syndromTest);
     }
 
 

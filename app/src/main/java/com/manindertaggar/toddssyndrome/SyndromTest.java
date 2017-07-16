@@ -8,7 +8,7 @@ import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 
 /**
- * Created by maninder on 16/7/17.
+ * Created by Maninder Taggar on 16/7/17.
  */
 
 @Entity
@@ -19,6 +19,7 @@ public class SyndromTest {
     private int age = 50;
     private Boolean isMale = false;
     private Boolean haveMigranes = false;
+    private Boolean isUploaded = false;
 
     public int getTime() {
         return time;
@@ -69,7 +70,26 @@ public class SyndromTest {
 
     }
 
+    @Generated(hash = 1159071299)
+    public SyndromTest(Long id, int age, Boolean isMale, Boolean haveMigranes, Boolean isUploaded,
+            Boolean usesHallucinogeninDrugs, int time, int probabity) {
+        this.id = id;
+        this.age = age;
+        this.isMale = isMale;
+        this.haveMigranes = haveMigranes;
+        this.isUploaded = isUploaded;
+        this.usesHallucinogeninDrugs = usesHallucinogeninDrugs;
+        this.time = time;
+        this.probabity = probabity;
+    }
 
+    public Boolean getUploaded() {
+        return isUploaded;
+    }
+
+    public void setUploaded(Boolean uploaded) {
+        isUploaded = uploaded;
+    }
 
     public void getProbability() {
 
@@ -144,5 +164,13 @@ public class SyndromTest {
     @Override
     public String toString() {
         return new Gson().toJson(this);
+    }
+
+    public Boolean getIsUploaded() {
+        return this.isUploaded;
+    }
+
+    public void setIsUploaded(Boolean isUploaded) {
+        this.isUploaded = isUploaded;
     }
 }

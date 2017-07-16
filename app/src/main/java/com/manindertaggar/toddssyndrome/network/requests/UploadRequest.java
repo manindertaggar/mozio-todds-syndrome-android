@@ -3,6 +3,7 @@ package com.manindertaggar.toddssyndrome.network.requests;
 import android.content.Context;
 
 import com.manindertaggar.toddssyndrome.BaseApplication;
+import com.manindertaggar.toddssyndrome.SyndromTest;
 import com.manindertaggar.toddssyndrome.network.NetworkConstants;
 import com.manindertaggar.toddssyndrome.network.callbacks.UploadCallback;
 import com.manindertaggar.toddssyndrome.network.core.HttpRequest;
@@ -25,14 +26,14 @@ public class UploadRequest extends HttpRequest {
     }
 
 
-    public UploadRequest send(String data) {
+    public UploadRequest send(SyndromTest syndromTest) {
         RequestBody formBody = new FormBody.Builder()
-                .add("action", NetworkConstants.ACTION_SEARCH)
+                .add("action", NetworkConstants.ACTION_UPLOAD)
                 .add("deviceId", BaseApplication.getDeviceId())
-                .add("data", data)
+                .add("data", syndromTest.toString())
                 .build();
 
-        RequestCallback callback = new UploadCallback(context);
+        RequestCallback callback = new UploadCallback(context,syndromTest);
         super.send(NetworkConstants.BASE_URL, HttpRequest.POST, formBody, callback);
         return this;
     }
