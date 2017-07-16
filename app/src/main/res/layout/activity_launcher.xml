@@ -7,23 +7,22 @@
     android:orientation="vertical"
     tools:context="com.manindertaggar.toddssyndrome.activities.LauncherActivity">
 
+
     <ImageView
+        android:id="@+id/ivLogo"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center"
+        android:layout_margin="30dp"
         android:layout_weight="3"
         android:adjustViewBounds="true"
-        android:padding="40dp"
         android:src="@drawable/docter_logo" />
-
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
         android:text="Todd's Syndrom"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="22sp" />

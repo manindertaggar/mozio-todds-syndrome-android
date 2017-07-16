@@ -46,20 +46,15 @@ public class TestResultsFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                initViews();
-                saveInDatabase();
+                setData();
+                Dao.getSyndromeDao().save(syndromCalculator);
             }
-
-
         }, 1000);
         return view;
     }
 
-    private void saveInDatabase() {
-        Dao.getSyndromeDao().save(syndromCalculator);
-    }
 
-    private void initViews() {
+    private void setData() {
         tvSex.setText(syndromCalculator.getIsMale() ? "Male" : "Female");
         tvMigranes.setText(syndromCalculator.getHaveMigranes() ? "Yes" : "No");
         tvDrugs.setText(syndromCalculator.getUsesHallucinogeninDrugs() ? "Yes" : "No");

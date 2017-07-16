@@ -1,8 +1,8 @@
 package com.manindertaggar.toddssyndrome;
 
 import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.Id;
 
 /**
  * Created by maninder on 16/7/17.
@@ -15,8 +15,17 @@ public class SyndromCalculator {
     private int age = 50;
     private Boolean isMale = false;
     private Boolean haveMigranes = false;
-    private Boolean usesHallucinogeninDrugs = false;
 
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+    private Boolean usesHallucinogeninDrugs = false;
+    private int time;
     private int probabity = 0;
 
     //here goes the logic of Syndrome test
@@ -56,18 +65,17 @@ public class SyndromCalculator {
 
     }
 
-
-    @Generated(hash = 1226952326)
+    @Generated(hash = 996192452)
     public SyndromCalculator(Long id, int age, Boolean isMale, Boolean haveMigranes,
-            Boolean usesHallucinogeninDrugs, int probabity) {
+            Boolean usesHallucinogeninDrugs, int time, int probabity) {
         this.id = id;
         this.age = age;
         this.isMale = isMale;
         this.haveMigranes = haveMigranes;
         this.usesHallucinogeninDrugs = usesHallucinogeninDrugs;
+        this.time = time;
         this.probabity = probabity;
     }
-
 
 
     public void getProbability() {

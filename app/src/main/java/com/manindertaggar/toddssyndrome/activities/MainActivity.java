@@ -16,9 +16,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void viewPreviousResults(View view) {
+        startActivity(new Intent(this, ResultsActivity.class));
     }
 
     public void takeTest(View view) {
-        startActivity(new Intent(this,TestActivity.class));
+        startActivity(new Intent(this, TestActivity.class));
     }
 }

@@ -2,202 +2,52 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fff">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:padding="20dp"
+        android:text="Results"
+        android:textColor="#222"
+        android:textSize="22dp" />
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:layout_below="@+id/textView2">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:padding="20dp"
-            android:text="Results"
-            android:textColor="#222"
-            android:textSize="22dp" />
+        <include layout="@layout/item_syndrome_calculator" />
+    </FrameLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="#eee"
-                android:gravity="center"
-                android:padding="8dp"
-                android:text="Sex"
-                android:textColor="#444"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/tvSex"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="#eee"
-                android:gravity="center"
-                android:padding="8dp"
-                android:text="-"
-                android:textColor="#444"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="#eee"
-                android:gravity="center"
-                android:padding="8dp"
-                android:text="Age"
-                android:textColor="#444"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/tvAge"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="#eee"
-                android:gravity="center"
-                android:padding="8dp"
-                android:text="-"
-                android:textColor="#444"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="#eee"
-                android:ellipsize="marquee"
-                android:gravity="center"
-                android:padding="8dp"
-                android:text="Migranes"
-                android:textColor="#444"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/tvMigranes"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="#eee"
-                android:gravity="center"
-                android:padding="8dp"
-                android:text="-"
-                android:textColor="#444"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="#eee"
-                android:ellipsize="marquee"
-                android:gravity="center"
-                android:lines="1"
-                android:padding="8dp"
-                android:text="Hallucinogenic Drugs"
-                android:textColor="#444"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/tvDrugs"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="#eee"
-                android:gravity="center"
-                android:padding="8dp"
-                android:text="-"
-                android:textColor="#444"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="@color/colorPrimary"
-                android:ellipsize="marquee"
-                android:gravity="center"
-                android:lines="1"
-                android:padding="10dp"
-                android:text="Syndrom Probabilty"
-                android:textColor="#fff"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/tvProbability"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:layout_weight="1"
-                android:background="@color/colorPrimary"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="-"
-                android:textColor="#fff"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-    </LinearLayout>
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_alignParentBottom="true"
+        android:background="#fff"
+        app:mrl_rippleAlpha="0.2"
+        app:mrl_rippleColor="#ddd"
+        app:mrl_rippleDelayClick="true"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true">
 
     <TextView
         android:id="@+id/tvHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:background="#222"
         android:elevation="2dp"
         android:gravity="center"
         android:padding="15dp"
         android:text="Home"
         android:textColor="#fff" />
-
+</com.balysv.materialripple.MaterialRippleLayout>
 </RelativeLayout>

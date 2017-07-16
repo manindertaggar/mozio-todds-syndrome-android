@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
@@ -26,50 +27,73 @@
         android:orientation="horizontal"
         android:padding="20dp">
 
-
-        <LinearLayout
-            android:id="@+id/llMale"
+        <com.balysv.materialripple.MaterialRippleLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:clickable="true"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:background="#fff"
+            app:mrl_rippleAlpha="0.2"
+            app:mrl_rippleColor="#ddd"
+            app:mrl_rippleDelayClick="true"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="150dp"
-                android:src="@drawable/male" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/llMale"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Male"
-                android:textColor="#000"
-                android:textSize="18sp" />
-        </LinearLayout>
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/llFemale"
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/male" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </com.balysv.materialripple.MaterialRippleLayout>
+
+        <com.balysv.materialripple.MaterialRippleLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:clickable="true"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:background="#fff"
+            app:mrl_rippleAlpha="0.2"
+            app:mrl_rippleColor="#ddd"
+            app:mrl_rippleDelayClick="true"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="150dp"
-                android:src="@drawable/female" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/llFemale"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Female"
-                android:textColor="#000"
-                android:textSize="18sp" />
-        </LinearLayout>
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/female" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </com.balysv.materialripple.MaterialRippleLayout>
     </LinearLayout>
 
 

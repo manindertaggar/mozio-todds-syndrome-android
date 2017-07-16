@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Todd\'s Syndrome</string>
+    <integer name="activity_animation_duration">400</integer>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
@@ -26,58 +27,84 @@
         android:padding="20dp">
 
 
-        <LinearLayout
-            android:id="@+id/llMigrane"
+        <com.balysv.materialripple.MaterialRippleLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:clickable="true"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:background="#fff"
+            app:mrl_rippleAlpha="0.2"
+            app:mrl_rippleColor="#ddd"
+            app:mrl_rippleDelayClick="true"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="30dp"
-                android:src="@drawable/migrane_spikes"/>
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="150dp"
-                android:id="@+id/ivMigraneFace"
-                android:src="@drawable/male_migrane" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/llMigrane"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Yes"
-                android:textColor="#000"
-                android:textSize="18sp" />
-        </LinearLayout>
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/llNoMigrane"
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/migrane_spikes" />
+
+                <ImageView
+                    android:id="@+id/ivMigraneFace"
+                    android:layout_width="100dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/male_migrane" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </com.balysv.materialripple.MaterialRippleLayout>
+
+        <com.balysv.materialripple.MaterialRippleLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:clickable="true"
-            android:gravity="center"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="30dp" />
+            android:background="#fff"
+            app:mrl_rippleAlpha="0.2"
+            app:mrl_rippleColor="#ddd"
+            app:mrl_rippleDelayClick="true"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="150dp"
-                android:id="@+id/ivNoMigraneFace"
-                android:src="@drawable/male" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/llNoMigrane"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="No"
-                android:textColor="#000"
-                android:textSize="18sp" />
-        </LinearLayout>
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="30dp" />
+
+                <ImageView
+                    android:id="@+id/ivNoMigraneFace"
+                    android:layout_width="100dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/male" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </com.balysv.materialripple.MaterialRippleLayout>
     </LinearLayout>
 
 

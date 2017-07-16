@@ -19,7 +19,6 @@ public class Dao {
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, context.getPackageName());
         Database db = helper.getWritableDb();
         daoSession = new DaoMaster(db).newSession();
-
     }
 
     public static DaoSession getDaoSession() {

@@ -33,11 +33,11 @@ public class SetAgeFragment extends Fragment implements AgeAdapter.AgeSelectedLi
         this.syndromCalculator = ((TestActivity) getActivity()).getSyndromCalculator();
         View view = inflater.inflate(R.layout.layout_viewpager_set_age, container, false);
         ButterKnife.bind(this, view);
-        initViews();
+        setData();
         return view;
     }
 
-    private void initViews() {
+    private void setData() {
         rvAge.setHasFixedSize(true);
         rvAge.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvAge.setAdapter(new AgeAdapter(getContext(), this));
